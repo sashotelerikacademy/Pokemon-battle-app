@@ -8,8 +8,10 @@ function PokemonCard({ pokemon }) {
             margin: "12px",
             width: "200px"
         }}>
-            <h3>{pokemon.name.toUpeerCase()}</h3>
+            <h3>{pokemon.name.toUpperCase()}</h3>
+
             <img src={pokemon.image} alt={pokemon.name} />
+
             <p>Height: {pokemon.height}</p>
             <p>Weight: {pokemon.weight}</p>
             <p>Types: {pokemon.types.join(", ")}</p>

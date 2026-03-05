@@ -1,7 +1,8 @@
 export async function getRandomPokemon() {
     try {
-        const maxPokemon = 1010;
-        const randomId = Math.floor(Math.random() * maxPokemon) + 1;
+        const maxPokemon = 1009
+        const randomId = Math.floor(Math.random() * maxPokemon) + 1
+
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
 
         if (!response.ok) {
@@ -12,13 +13,14 @@ export async function getRandomPokemon() {
 
         return {
             name: data.name,
-            image: data.sprites.frount_default,
             height: data.height,
             weight: data.weight,
-            types: data.types.map(t => t.type.name)
+            types: data.types.map(t => t.type.name),
+            image: data.sprites.front_default
         }
+
     } catch (err) {
-        console.log(err);
+        console.error("API error:", err)
         throw err
     }
 }

@@ -11,6 +11,14 @@ function PokemonBattle() {
     const [error, setError] = useState("")
     const [previousScore, setPreviousScore] = useState(0)
     const [currentScore, setCurrentScore] = useState(0)
+    const [typeMatches, setTypeMatches] = useState(0)
+
+    const handleResetScore = () => {
+        setPreviousScore(0)
+        setCurrentScore(0)
+        setPreviousPokemon(null)
+        setCurrentPokemon(null)
+    }
 
     const battleResult = useMemo(() => {
         return getBattleResult(previousPokemon, currentPokemon)
@@ -19,12 +27,16 @@ function PokemonBattle() {
     useEffect(() => {
         if (!battleResult) return;
 
-        if (battleResult === `Current Pokemon wins!`) {
+        if (battleResult?.winner === "current") {
             setCurrentScore(prev => prev + 1)
         }
 
-        if (battleResult === `Previous Pokemon wins!`) {
+        if (battleResult?.winner === "previous") {
             setPreviousScore(prev => prev + 1)
+        }
+
+        if (battleResult?.typeMatch) {
+            setTypeMatches(prev => prev + 1)
         }
     }, [battleResult])
 
@@ -57,15 +69,30 @@ function PokemonBattle() {
                 {currentPokemon ? <PokemonCard pokemon={currentPokemon} /> : <p>None</p>}
             </div>
 
-            <h3>Score</h3>
-            <p>Previous: {previousScore}</p>
-            <p>Current: {currentScore}</p>
+            <button onClick={handleResetScore} style={{ marginTop: "10px" }}>
+                Reset Score
+            </button>
 
             {battleResult && (
-                <h2 style={{ marginTop: "20px" }}>
-                    {battleResult}
+                <h2
+                    style={{
+                        marginTop: "20px",
+                        color:
+                            battleResult.winner === "current"
+                                ? "green"
+                                : battleResult.winner === "previous"
+                                    ? "red"
+                                    : "gray"
+                    }}
+                >
+                    {battleResult.message}
                 </h2>
             )}
+
+            <h3>Counters</h3>
+            <p>Previous Score: {previousScore}</p>
+            <p>Current Score: {currentScore}</p>
+            <p>Type Matches: {typeMatches}</p>
 
             <LoadButton onClick={handleLoad} />
         </div>
