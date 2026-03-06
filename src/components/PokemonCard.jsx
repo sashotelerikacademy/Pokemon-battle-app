@@ -1,22 +1,27 @@
+import "./PokemonCard.css"
+import { memo } from "react"
+
 function PokemonCard({ pokemon }) {
-    if (!pokemon) return null;
+    if (!pokemon) return null
 
     return (
-        <div style={{
-            border: "2px solid black",
-            padding: "12px",
-            margin: "12px",
-            width: "200px"
-        }}>
+        <div className="pokemon-card">
             <h3>{pokemon.name.toUpperCase()}</h3>
 
             <img src={pokemon.image} alt={pokemon.name} />
 
             <p>Height: {pokemon.height}</p>
             <p>Weight: {pokemon.weight}</p>
-            <p>Types: {pokemon.types.join(", ")}</p>
+            <p>
+                Types:{" "}
+                {pokemon.types.map(type => (
+                    <span key={type} className={`type ${type}`}>
+                        {type}
+                    </span>
+                ))}
+            </p>
         </div>
     )
 }
 
-export default PokemonCard
+export default memo(PokemonCard)

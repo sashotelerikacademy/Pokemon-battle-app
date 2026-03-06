@@ -1,6 +1,8 @@
+import "./LoadButton.css"
+
 function LoadButton({ onClick }) {
     return (
-        <button onClick={onClick} style={{ padding: "8px 16px", marginTop: "16px" }}>
+        <button className="load-button" onClick={onClick}>
             Load Random Pokemon
         </button>
     )
