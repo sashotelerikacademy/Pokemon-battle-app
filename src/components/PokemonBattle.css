@@ -1,4 +1,3 @@
-/* Основен контейнер за battle area */
 .battle-cards {
     display: flex;
     justify-content: center;
@@ -6,7 +5,6 @@
     margin: 20px 0;
 }
 
-/* Контейнер за бутоните */
 .controls {
     display: flex;
     justify-content: center;
@@ -15,7 +13,6 @@
     margin-top: 20px;
 }
 
-/* Основен стил на всички бутони */
 button {
     padding: 14px 24px;
     font-size: 16px;
@@ -30,31 +27,26 @@ button {
     justify-content: center;
 }
 
-/* Ensure load & reset buttons match height */
 .controls button {
     flex: 1;
     max-width: 220px;
 }
 
-/* Hover ефект на бутоните */
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
-/* Специфичен стил на Load Button */
 .load-button {
     background-color: #ffcb05;
     color: #2a75bb;
 }
 
-/* Специфичен стил на Reset Button */
 .reset-button {
     background-color: #1a1a1a;
     color: white;
 }
 
-/* Резултат от битка */
 .battle-result {
     margin-top: 20px;
     font-size: 22px;
@@ -66,7 +58,6 @@ button:hover {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Цветове според победител */
 .battle-result.current {
     color: white;
     background-color: green;
@@ -82,20 +73,17 @@ button:hover {
     background-color: yellow;
 }
 
-/* Hover ефект на battle result */
 .battle-result:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 15px rgba(0,0,0,0.35);
 }
 
-/* Анимация при появяване на battle result */
 @keyframes pop {
     0% { transform: scale(0.5); opacity: 0; }
     70% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Scoreboard */
 .scoreboard {
     display: flex;
     justify-content: center;
@@ -105,7 +93,6 @@ button:hover {
     font-weight: bold;
 }
 
-/* Центриране на цялото съдържание */
 .pokemon-battle-container {
     display: flex;
     flex-direction: column;

@@ -10,18 +10,15 @@
     transition: box-shadow 0.2s;
 }
 
-/* Hover ефект на картите */
 .pokemon-card:hover {
     box-shadow: 0 6px 12px rgba(0,0,0,0.18);
 }
 
-/* Типовете да имат цветове */
 .pokemon-card p span.type {
     font-weight: bold;
     padding: 2px 6px;
     border-radius: 4px;
 
-    /* Default badge style for unknown types */
     background-color: rgba(0, 0, 0, 0.12);
     color: #1a1a1a;
 }
@@ -34,4 +31,3 @@
 .type.normal { background-color: #A8A878; color: #1a1a1a; }
 .type.fighting { background-color: #C03028; }
 .type.flying { background-color: #A890F0; }
-/* Можем да добавим всички типове, ако искаме */
