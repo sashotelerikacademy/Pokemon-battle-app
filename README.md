@@ -1,16 +1,94 @@
-# React + Vite
+# Pokemon Battle React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Pokemon Battle is a React application that simulates battles between two randomly selected Pokémon.
+The application fetches Pokémon data from the public PokéAPI and compares their stats to determine a winner.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The goal of the project is to demonstrate understanding of:
 
-## React Compiler
+* React components
+* React Hooks
+* API requests
+* State management
+* Conditional rendering
+* Separation of logic
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Fetch random Pokémon from PokéAPI
+* Display Previous vs Current Pokémon
+* Automatic battle result calculation
+* Score tracking
+* Type match counter
+* Reset score functionality
+* Styled UI with CSS
+* Hover effects and animations
+
+---
+
+## Technologies Used
+
+* React
+* JavaScript (ES6+)
+* CSS
+* PokéAPI
+
+---
+
+## Project Structure
+
+```
+src
+│
+├── components
+│   ├── PokemonBattle.jsx
+│   ├── PokemonCard.jsx
+│   └── LoadButton.jsx
+│
+├── services
+│   └── api.js
+│
+├── utils
+│   └── battleLogic.js
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## How the Application Works
+
+1. The user clicks **Load Random Pokemon**.
+2. The app fetches a random Pokémon from the PokéAPI.
+3. The previous Pokémon becomes the **Previous** card.
+4. The new Pokémon becomes the **Current** card.
+5. The battle logic compares both Pokémon.
+6. The winner receives a score point.
+7. If both Pokémon share a type, the **Type Match** counter increases.
+
+---
+
+## API
+
+The application uses the public API:
+
+https://pokeapi.co/
+
+Endpoint used:
+
+```
+https://pokeapi.co/api/v2/pokemon/{id}
+```
+
+---
+
+## Future Improvements
+
+* Add Pokémon abilities comparison
+* Add battle animations
+* Add loading spinner
+* Add sound effects
